@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="gla43158_QLSXCW1ModelStoreContainer" CdmEntityContainer="gla43158_QLSXCW1Entities">
+    <EntitySetMapping Name="Dev_Lang">
+      <EntityTypeMapping TypeName="gla43158_QLSXCW1Model.Dev_Lang">
+        <MappingFragment StoreEntitySet="Dev-Lang">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Viet" ColumnName="Viet" />
+          <ScalarProperty Name="Eng" ColumnName="Eng" />
+          <ScalarProperty Name="China" ColumnName="China" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="gla43158_QLSXCW1Model.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="gla43158_QLSXCW1Model.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="IDHinhAnh" ColumnName="IDHinhAnh" />
+          <ScalarProperty Name="LinkHinh" ColumnName="LinkHinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plan_Input">
+      <EntityTypeMapping TypeName="gla43158_QLSXCW1Model.Plan_Input">
+        <MappingFragment StoreEntitySet="Plan-Input">
+          <ScalarProperty Name="PurchaseRequisition" ColumnName="PurchaseRequisition" />
+          <ScalarProperty Name="CustomerOrder" ColumnName="CustomerOrder" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="ProduceItem" ColumnName="ProduceItem" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="IdInput" ColumnName="IdInput" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Plan_View">
+      <EntityTypeMapping TypeName="gla43158_QLSXCW1Model.Plan_View">
+        <MappingFragment StoreEntitySet="Plan-View">
+          <ScalarProperty Name="PurchaseRequisition" ColumnName="PurchaseRequisition" />
+          <ScalarProperty Name="CustomerOrder" ColumnName="CustomerOrder" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+          <ScalarProperty Name="QtyBatchSum" ColumnName="QtyBatchSum" />
+          <ScalarProperty Name="QtySum" ColumnName="QtySum" />
+          <ScalarProperty Name="QtyDate" ColumnName="QtyDate" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="ProduceItem" ColumnName="ProduceItem" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Line" ColumnName="Line" />
+          <ScalarProperty Name="IdInput" ColumnName="IdInput" />
+          <ScalarProperty Name="IdView" ColumnName="IdView" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

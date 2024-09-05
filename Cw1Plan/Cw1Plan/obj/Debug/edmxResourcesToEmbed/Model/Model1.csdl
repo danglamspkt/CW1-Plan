@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gla43158_QLSXCW1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Dev_Lang">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Viet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Eng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="China" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Users__IdRole__04E4BC85" FromRole="UserRole" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdRole" Type="Int32" Nullable="false" />
+    <Property Name="ChucVu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="IDHinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LinkHinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserRole" Relationship="Self.FK__Users__IdRole__04E4BC85" FromRole="Users" ToRole="UserRole" />
+  </EntityType>
+  <Association Name="FK__Users__IdRole__04E4BC85">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="gla43158_QLSXCW1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Dev_Lang" EntityType="Self.Dev_Lang" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK__Users__IdRole__04E4BC85" Association="Self.FK__Users__IdRole__04E4BC85">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="Plan_Input" EntityType="gla43158_QLSXCW1Model.Plan_Input" />
+    <EntitySet Name="Plan_View" EntityType="gla43158_QLSXCW1Model.Plan_View" />
+    <AssociationSet Name="FK__Plan_View__IdInp__731B1205" Association="gla43158_QLSXCW1Model.FK__Plan_View__IdInp__731B1205">
+      <End Role="Plan_Input" EntitySet="Plan_Input" />
+      <End Role="Plan_View" EntitySet="Plan_View" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Plan_Input">
+    <Key>
+      <PropertyRef Name="IdInput" />
+    </Key>
+    <Property Name="IdInput" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Line" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="ProduceItem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Qty" Type="Int32" />
+    <Property Name="ShipDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseRequisition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Plan_View" Relationship="gla43158_QLSXCW1Model.FK__Plan_View__IdInp__731B1205" FromRole="Plan_Input" ToRole="Plan_View" />
+  </EntityType>
+  <EntityType Name="Plan_View">
+    <Key>
+      <PropertyRef Name="IdView" />
+    </Key>
+    <Property Name="IdView" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdInput" Type="Int32" />
+    <Property Name="Line" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="ProduceItem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QtyDate" Type="Int32" />
+    <Property Name="QtySum" Type="Int32" />
+    <Property Name="QtyBatchSum" Type="Int32" />
+    <Property Name="ShipDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseRequisition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Plan_Input" Relationship="gla43158_QLSXCW1Model.FK__Plan_View__IdInp__731B1205" FromRole="Plan_View" ToRole="Plan_Input" />
+  </EntityType>
+  <Association Name="FK__Plan_View__IdInp__731B1205">
+    <End Type="gla43158_QLSXCW1Model.Plan_Input" Role="Plan_Input" Multiplicity="0..1" />
+    <End Type="gla43158_QLSXCW1Model.Plan_View" Role="Plan_View" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plan_Input">
+        <PropertyRef Name="IdInput" />
+      </Principal>
+      <Dependent Role="Plan_View">
+        <PropertyRef Name="IdInput" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

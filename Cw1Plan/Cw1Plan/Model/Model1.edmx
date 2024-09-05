@@ -1,0 +1,624 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="gla43158_QLSXCW1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BOM-BomTp">
+          <Key>
+            <PropertyRef Name="MaHang" />
+          </Key>
+          <Property Name="MaHang" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar(max)" />
+          <Property Name="TenTiengTrung" Type="nvarchar(max)" />
+          <Property Name="QuyCach" Type="nvarchar(max)" />
+          <Property Name="MauSon" Type="nvarchar(max)" />
+          <Property Name="HNet" Type="float" />
+          <Property Name="WNet" Type="float" />
+          <Property Name="DNet" Type="float" />
+          <Property Name="HGross" Type="float" />
+          <Property Name="WGross" Type="float" />
+          <Property Name="DGross" Type="float" />
+          <Property Name="NetWeight" Type="float" />
+          <Property Name="GrossWeight" Type="float" />
+          <Property Name="Version" Type="int" />
+          <Property Name="UnitERP" Type="nvarchar" MaxLength="40" />
+          <Property Name="UnitSx" Type="nvarchar" MaxLength="40" />
+          <Property Name="TyLeChuyenDoi" Type="float" />
+          <Property Name="MaKeToanERP" Type="int" />
+          <Property Name="MaPLLonERP" Type="int" />
+          <Property Name="MaPLNhoERP" Type="int" />
+          <Property Name="MaPL4ERP" Type="int" />
+          <Property Name="MaPLLonSx" Type="nvarchar(max)" />
+          <Property Name="MaPLNhoSx" Type="nvarchar(max)" />
+          <Property Name="IDImg" Type="nvarchar(max)" />
+          <Property Name="LinkImg" Type="nvarchar(max)" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserNameEdit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="date" />
+          <Property Name="DateEdit" Type="date" />
+        </EntityType>
+        <EntityType Name="BOM-ThiTruong">
+          <Key>
+            <PropertyRef Name="ThiTruong" />
+          </Key>
+          <Property Name="ThiTruong" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar(max)" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserNameEdit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="date" />
+          <Property Name="DateEdit" Type="date" />
+        </EntityType>
+        <EntityType Name="Dev-Lang">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Viet" Type="nvarchar(max)" />
+          <Property Name="Eng" Type="nvarchar(max)" />
+          <Property Name="China" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Plan-Input">
+          <Key>
+            <PropertyRef Name="IdInput" />
+          </Key>
+          <Property Name="IdInput" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Line" Type="nvarchar(max)" />
+          <Property Name="ProduceDate" Type="date" />
+          <Property Name="ProduceItem" Type="nvarchar" MaxLength="40" />
+          <Property Name="ThiTruong" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar(max)" />
+          <Property Name="Qty" Type="int" />
+          <Property Name="ShipDate" Type="nvarchar(max)" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="CustomerOrder" Type="nvarchar(max)" />
+          <Property Name="PurchaseRequisition" Type="nvarchar(max)" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserNameEdit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="date" />
+          <Property Name="DateEdit" Type="date" />
+        </EntityType>
+        <EntityType Name="Plan-View">
+          <Key>
+            <PropertyRef Name="IdView" />
+          </Key>
+          <Property Name="IdView" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdInput" Type="int" />
+          <Property Name="Line" Type="nvarchar(max)" />
+          <Property Name="ProduceDate" Type="date" />
+          <Property Name="ProduceItem" Type="nvarchar" MaxLength="40" />
+          <Property Name="ThiTruong" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar(max)" />
+          <Property Name="QtyDate" Type="int" />
+          <Property Name="QtySum" Type="int" />
+          <Property Name="QtyBatchSum" Type="int" />
+          <Property Name="ShipDate" Type="nvarchar(max)" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="CustomerOrder" Type="nvarchar(max)" />
+          <Property Name="PurchaseRequisition" Type="nvarchar(max)" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserNameEdit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Date" Type="date" />
+          <Property Name="DateEdit" Type="date" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar(max)" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="IdRole" Type="int" Nullable="false" />
+          <Property Name="ChucVu" Type="nvarchar(max)" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="IDHinhAnh" Type="nvarchar(max)" />
+          <Property Name="LinkHinh" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK__Plan-Inpu__Produ__2A6B46EF">
+          <End Role="BOM-BomTp" Type="Self.BOM-BomTp" Multiplicity="0..1" />
+          <End Role="Plan-Input" Type="Self.Plan-Input" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM-BomTp">
+              <PropertyRef Name="MaHang" />
+            </Principal>
+            <Dependent Role="Plan-Input">
+              <PropertyRef Name="ProduceItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Plan-Inpu__ThiTr__297722B6">
+          <End Role="BOM-ThiTruong" Type="Self.BOM-ThiTruong" Multiplicity="1" />
+          <End Role="Plan-Input" Type="Self.Plan-Input" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM-ThiTruong">
+              <PropertyRef Name="ThiTruong" />
+            </Principal>
+            <Dependent Role="Plan-Input">
+              <PropertyRef Name="ThiTruong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Plan-View__IdInp__2882FE7D">
+          <End Role="Plan-Input" Type="Self.Plan-Input" Multiplicity="0..1" />
+          <End Role="Plan-View" Type="Self.Plan-View" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plan-Input">
+              <PropertyRef Name="IdInput" />
+            </Principal>
+            <Dependent Role="Plan-View">
+              <PropertyRef Name="IdInput" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Plan-View__Produ__2C538F61">
+          <End Role="BOM-BomTp" Type="Self.BOM-BomTp" Multiplicity="0..1" />
+          <End Role="Plan-View" Type="Self.Plan-View" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM-BomTp">
+              <PropertyRef Name="MaHang" />
+            </Principal>
+            <Dependent Role="Plan-View">
+              <PropertyRef Name="ProduceItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Plan-View__ThiTr__2B5F6B28">
+          <End Role="BOM-ThiTruong" Type="Self.BOM-ThiTruong" Multiplicity="1" />
+          <End Role="Plan-View" Type="Self.Plan-View" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM-ThiTruong">
+              <PropertyRef Name="ThiTruong" />
+            </Principal>
+            <Dependent Role="Plan-View">
+              <PropertyRef Name="ThiTruong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__IdRole__04E4BC85">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="gla43158_QLSXCW1ModelStoreContainer">
+          <EntitySet Name="BOM-BomTp" EntityType="Self.BOM-BomTp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BOM-ThiTruong" EntityType="Self.BOM-ThiTruong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dev-Lang" EntityType="Self.Dev-Lang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plan-Input" EntityType="Self.Plan-Input" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plan-View" EntityType="Self.Plan-View" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Plan-Inpu__Produ__2A6B46EF" Association="Self.FK__Plan-Inpu__Produ__2A6B46EF">
+            <End Role="BOM-BomTp" EntitySet="BOM-BomTp" />
+            <End Role="Plan-Input" EntitySet="Plan-Input" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Plan-Inpu__ThiTr__297722B6" Association="Self.FK__Plan-Inpu__ThiTr__297722B6">
+            <End Role="BOM-ThiTruong" EntitySet="BOM-ThiTruong" />
+            <End Role="Plan-Input" EntitySet="Plan-Input" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Plan-View__IdInp__2882FE7D" Association="Self.FK__Plan-View__IdInp__2882FE7D">
+            <End Role="Plan-Input" EntitySet="Plan-Input" />
+            <End Role="Plan-View" EntitySet="Plan-View" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Plan-View__Produ__2C538F61" Association="Self.FK__Plan-View__Produ__2C538F61">
+            <End Role="BOM-BomTp" EntitySet="BOM-BomTp" />
+            <End Role="Plan-View" EntitySet="Plan-View" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Plan-View__ThiTr__2B5F6B28" Association="Self.FK__Plan-View__ThiTr__2B5F6B28">
+            <End Role="BOM-ThiTruong" EntitySet="BOM-ThiTruong" />
+            <End Role="Plan-View" EntitySet="Plan-View" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__IdRole__04E4BC85" Association="Self.FK__Users__IdRole__04E4BC85">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="gla43158_QLSXCW1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dev_Lang">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Viet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Eng" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="China" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__IdRole__04E4BC85" FromRole="UserRole" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdRole" Type="Int32" Nullable="false" />
+          <Property Name="ChucVu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="IDHinhAnh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LinkHinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK__Users__IdRole__04E4BC85" FromRole="Users" ToRole="UserRole" />
+        </EntityType>
+        <Association Name="FK__Users__IdRole__04E4BC85">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="gla43158_QLSXCW1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dev_Lang" EntityType="Self.Dev_Lang" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK__Users__IdRole__04E4BC85" Association="Self.FK__Users__IdRole__04E4BC85">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Plan_Input" EntityType="gla43158_QLSXCW1Model.Plan_Input" />
+          <EntitySet Name="Plan_View" EntityType="gla43158_QLSXCW1Model.Plan_View" />
+          <AssociationSet Name="FK__Plan_View__IdInp__731B1205" Association="gla43158_QLSXCW1Model.FK__Plan_View__IdInp__731B1205">
+            <End Role="Plan_Input" EntitySet="Plan_Input" />
+            <End Role="Plan_View" EntitySet="Plan_View" />
+          </AssociationSet>
+          <EntitySet Name="BOM_BomTp" EntityType="gla43158_QLSXCW1Model.BOM_BomTp" />
+          <EntitySet Name="BOM_ThiTruong" EntityType="gla43158_QLSXCW1Model.BOM_ThiTruong" />
+          <AssociationSet Name="FK__Plan_Inpu__Produ__2A6B46EF" Association="gla43158_QLSXCW1Model.FK__Plan_Inpu__Produ__2A6B46EF">
+            <End Role="BOM_BomTp" EntitySet="BOM_BomTp" />
+            <End Role="Plan_Input" EntitySet="Plan_Input" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Plan_View__Produ__2C538F61" Association="gla43158_QLSXCW1Model.FK__Plan_View__Produ__2C538F61">
+            <End Role="BOM_BomTp" EntitySet="BOM_BomTp" />
+            <End Role="Plan_View" EntitySet="Plan_View" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Plan_Inpu__ThiTr__297722B6" Association="gla43158_QLSXCW1Model.FK__Plan_Inpu__ThiTr__297722B6">
+            <End Role="BOM_ThiTruong" EntitySet="BOM_ThiTruong" />
+            <End Role="Plan_Input" EntitySet="Plan_Input" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Plan_View__ThiTr__2B5F6B28" Association="gla43158_QLSXCW1Model.FK__Plan_View__ThiTr__2B5F6B28">
+            <End Role="BOM_ThiTruong" EntitySet="BOM_ThiTruong" />
+            <End Role="Plan_View" EntitySet="Plan_View" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Plan_Input">
+          <Key>
+            <PropertyRef Name="IdInput" />
+          </Key>
+          <Property Name="IdInput" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Line" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="ProduceItem" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Qty" Type="Int32" />
+          <Property Name="ShipDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseRequisition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Plan_View" Relationship="gla43158_QLSXCW1Model.FK__Plan_View__IdInp__731B1205" FromRole="Plan_Input" ToRole="Plan_View" />
+          <Property Name="ProduceDate" Type="DateTime" Precision="0" />
+          <Property Name="ThiTruong" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserNameEdit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateEdit" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="BOM_BomTp" Relationship="gla43158_QLSXCW1Model.FK__Plan_Inpu__Produ__2A6B46EF" FromRole="Plan_Input" ToRole="BOM_BomTp" />
+          <NavigationProperty Name="BOM_ThiTruong" Relationship="gla43158_QLSXCW1Model.FK__Plan_Inpu__ThiTr__297722B6" FromRole="Plan_Input" ToRole="BOM_ThiTruong" />
+        </EntityType>
+        <EntityType Name="Plan_View">
+          <Key>
+            <PropertyRef Name="IdView" />
+          </Key>
+          <Property Name="IdView" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdInput" Type="Int32" />
+          <Property Name="Line" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="ProduceItem" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QtyDate" Type="Int32" />
+          <Property Name="QtySum" Type="Int32" />
+          <Property Name="QtyBatchSum" Type="Int32" />
+          <Property Name="ShipDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerOrder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseRequisition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Plan_Input" Relationship="gla43158_QLSXCW1Model.FK__Plan_View__IdInp__731B1205" FromRole="Plan_View" ToRole="Plan_Input" />
+          <Property Name="ProduceDate" Type="DateTime" Precision="0" />
+          <Property Name="ThiTruong" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserNameEdit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateEdit" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="BOM_BomTp" Relationship="gla43158_QLSXCW1Model.FK__Plan_View__Produ__2C538F61" FromRole="Plan_View" ToRole="BOM_BomTp" />
+          <NavigationProperty Name="BOM_ThiTruong" Relationship="gla43158_QLSXCW1Model.FK__Plan_View__ThiTr__2B5F6B28" FromRole="Plan_View" ToRole="BOM_ThiTruong" />
+        </EntityType>
+        <Association Name="FK__Plan_View__IdInp__731B1205">
+          <End Type="gla43158_QLSXCW1Model.Plan_Input" Role="Plan_Input" Multiplicity="0..1" />
+          <End Type="gla43158_QLSXCW1Model.Plan_View" Role="Plan_View" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Plan_Input">
+              <PropertyRef Name="IdInput" />
+            </Principal>
+            <Dependent Role="Plan_View">
+              <PropertyRef Name="IdInput" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BOM_BomTp">
+          <Key>
+            <PropertyRef Name="MaHang" />
+          </Key>
+          <Property Name="MaHang" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TenTiengTrung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuyCach" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MauSon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HNet" Type="Double" />
+          <Property Name="WNet" Type="Double" />
+          <Property Name="DNet" Type="Double" />
+          <Property Name="HGross" Type="Double" />
+          <Property Name="WGross" Type="Double" />
+          <Property Name="DGross" Type="Double" />
+          <Property Name="NetWeight" Type="Double" />
+          <Property Name="GrossWeight" Type="Double" />
+          <Property Name="Version" Type="Int32" />
+          <Property Name="UnitERP" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="UnitSx" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="TyLeChuyenDoi" Type="Double" />
+          <Property Name="MaKeToanERP" Type="Int32" />
+          <Property Name="MaPLLonERP" Type="Int32" />
+          <Property Name="MaPLNhoERP" Type="Int32" />
+          <Property Name="MaPL4ERP" Type="Int32" />
+          <Property Name="MaPLLonSx" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MaPLNhoSx" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IDImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LinkImg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserNameEdit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="DateEdit" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Plan_Input" Relationship="gla43158_QLSXCW1Model.FK__Plan_Inpu__Produ__2A6B46EF" FromRole="BOM_BomTp" ToRole="Plan_Input" />
+          <NavigationProperty Name="Plan_View" Relationship="gla43158_QLSXCW1Model.FK__Plan_View__Produ__2C538F61" FromRole="BOM_BomTp" ToRole="Plan_View" />
+        </EntityType>
+        <EntityType Name="BOM_ThiTruong">
+          <Key>
+            <PropertyRef Name="ThiTruong" />
+          </Key>
+          <Property Name="ThiTruong" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserNameEdit" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="DateEdit" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Plan_Input" Relationship="gla43158_QLSXCW1Model.FK__Plan_Inpu__ThiTr__297722B6" FromRole="BOM_ThiTruong" ToRole="Plan_Input" />
+          <NavigationProperty Name="Plan_View" Relationship="gla43158_QLSXCW1Model.FK__Plan_View__ThiTr__2B5F6B28" FromRole="BOM_ThiTruong" ToRole="Plan_View" />
+        </EntityType>
+        <Association Name="FK__Plan_Inpu__Produ__2A6B46EF">
+          <End Type="gla43158_QLSXCW1Model.BOM_BomTp" Role="BOM_BomTp" Multiplicity="0..1" />
+          <End Type="gla43158_QLSXCW1Model.Plan_Input" Role="Plan_Input" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM_BomTp">
+              <PropertyRef Name="MaHang" />
+            </Principal>
+            <Dependent Role="Plan_Input">
+              <PropertyRef Name="ProduceItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Plan_View__Produ__2C538F61">
+          <End Type="gla43158_QLSXCW1Model.BOM_BomTp" Role="BOM_BomTp" Multiplicity="0..1" />
+          <End Type="gla43158_QLSXCW1Model.Plan_View" Role="Plan_View" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM_BomTp">
+              <PropertyRef Name="MaHang" />
+            </Principal>
+            <Dependent Role="Plan_View">
+              <PropertyRef Name="ProduceItem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Plan_Inpu__ThiTr__297722B6">
+          <End Type="gla43158_QLSXCW1Model.BOM_ThiTruong" Role="BOM_ThiTruong" Multiplicity="1" />
+          <End Type="gla43158_QLSXCW1Model.Plan_Input" Role="Plan_Input" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM_ThiTruong">
+              <PropertyRef Name="ThiTruong" />
+            </Principal>
+            <Dependent Role="Plan_Input">
+              <PropertyRef Name="ThiTruong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Plan_View__ThiTr__2B5F6B28">
+          <End Type="gla43158_QLSXCW1Model.BOM_ThiTruong" Role="BOM_ThiTruong" Multiplicity="1" />
+          <End Type="gla43158_QLSXCW1Model.Plan_View" Role="Plan_View" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BOM_ThiTruong">
+              <PropertyRef Name="ThiTruong" />
+            </Principal>
+            <Dependent Role="Plan_View">
+              <PropertyRef Name="ThiTruong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="gla43158_QLSXCW1ModelStoreContainer" CdmEntityContainer="gla43158_QLSXCW1Entities">
+          <EntitySetMapping Name="Dev_Lang">
+            <EntityTypeMapping TypeName="gla43158_QLSXCW1Model.Dev_Lang">
+              <MappingFragment StoreEntitySet="Dev-Lang">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Viet" ColumnName="Viet" />
+                <ScalarProperty Name="Eng" ColumnName="Eng" />
+                <ScalarProperty Name="China" ColumnName="China" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRole">
+            <EntityTypeMapping TypeName="gla43158_QLSXCW1Model.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="gla43158_QLSXCW1Model.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="IDHinhAnh" ColumnName="IDHinhAnh" />
+                <ScalarProperty Name="LinkHinh" ColumnName="LinkHinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plan_Input">
+            <EntityTypeMapping TypeName="gla43158_QLSXCW1Model.Plan_Input">
+              <MappingFragment StoreEntitySet="Plan-Input">
+                <ScalarProperty Name="DateEdit" ColumnName="DateEdit" />
+                <ScalarProperty Name="UserNameEdit" ColumnName="UserNameEdit" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ThiTruong" ColumnName="ThiTruong" />
+                <ScalarProperty Name="ProduceDate" ColumnName="ProduceDate" />
+                <ScalarProperty Name="PurchaseRequisition" ColumnName="PurchaseRequisition" />
+                <ScalarProperty Name="CustomerOrder" ColumnName="CustomerOrder" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="ProduceItem" ColumnName="ProduceItem" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Line" ColumnName="Line" />
+                <ScalarProperty Name="IdInput" ColumnName="IdInput" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plan_View">
+            <EntityTypeMapping TypeName="gla43158_QLSXCW1Model.Plan_View">
+              <MappingFragment StoreEntitySet="Plan-View">
+                <ScalarProperty Name="DateEdit" ColumnName="DateEdit" />
+                <ScalarProperty Name="UserNameEdit" ColumnName="UserNameEdit" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ThiTruong" ColumnName="ThiTruong" />
+                <ScalarProperty Name="ProduceDate" ColumnName="ProduceDate" />
+                <ScalarProperty Name="PurchaseRequisition" ColumnName="PurchaseRequisition" />
+                <ScalarProperty Name="CustomerOrder" ColumnName="CustomerOrder" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+                <ScalarProperty Name="QtyBatchSum" ColumnName="QtyBatchSum" />
+                <ScalarProperty Name="QtySum" ColumnName="QtySum" />
+                <ScalarProperty Name="QtyDate" ColumnName="QtyDate" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="ProduceItem" ColumnName="ProduceItem" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Line" ColumnName="Line" />
+                <ScalarProperty Name="IdInput" ColumnName="IdInput" />
+                <ScalarProperty Name="IdView" ColumnName="IdView" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOM_BomTp">
+            <EntityTypeMapping TypeName="gla43158_QLSXCW1Model.BOM_BomTp">
+              <MappingFragment StoreEntitySet="BOM-BomTp">
+                <ScalarProperty Name="DateEdit" ColumnName="DateEdit" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="UserNameEdit" ColumnName="UserNameEdit" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LinkImg" ColumnName="LinkImg" />
+                <ScalarProperty Name="IDImg" ColumnName="IDImg" />
+                <ScalarProperty Name="MaPLNhoSx" ColumnName="MaPLNhoSx" />
+                <ScalarProperty Name="MaPLLonSx" ColumnName="MaPLLonSx" />
+                <ScalarProperty Name="MaPL4ERP" ColumnName="MaPL4ERP" />
+                <ScalarProperty Name="MaPLNhoERP" ColumnName="MaPLNhoERP" />
+                <ScalarProperty Name="MaPLLonERP" ColumnName="MaPLLonERP" />
+                <ScalarProperty Name="MaKeToanERP" ColumnName="MaKeToanERP" />
+                <ScalarProperty Name="TyLeChuyenDoi" ColumnName="TyLeChuyenDoi" />
+                <ScalarProperty Name="UnitSx" ColumnName="UnitSx" />
+                <ScalarProperty Name="UnitERP" ColumnName="UnitERP" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="GrossWeight" ColumnName="GrossWeight" />
+                <ScalarProperty Name="NetWeight" ColumnName="NetWeight" />
+                <ScalarProperty Name="DGross" ColumnName="DGross" />
+                <ScalarProperty Name="WGross" ColumnName="WGross" />
+                <ScalarProperty Name="HGross" ColumnName="HGross" />
+                <ScalarProperty Name="DNet" ColumnName="DNet" />
+                <ScalarProperty Name="WNet" ColumnName="WNet" />
+                <ScalarProperty Name="HNet" ColumnName="HNet" />
+                <ScalarProperty Name="MauSon" ColumnName="MauSon" />
+                <ScalarProperty Name="QuyCach" ColumnName="QuyCach" />
+                <ScalarProperty Name="TenTiengTrung" ColumnName="TenTiengTrung" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="MaHang" ColumnName="MaHang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BOM_ThiTruong">
+            <EntityTypeMapping TypeName="gla43158_QLSXCW1Model.BOM_ThiTruong">
+              <MappingFragment StoreEntitySet="BOM-ThiTruong">
+                <ScalarProperty Name="DateEdit" ColumnName="DateEdit" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="UserNameEdit" ColumnName="UserNameEdit" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="ThiTruong" ColumnName="ThiTruong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gla43158_QLSXCW1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Dev-Lang">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Viet" Type="nvarchar(max)" />
+    <Property Name="Eng" Type="nvarchar(max)" />
+    <Property Name="China" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Plan-Input">
+    <Key>
+      <PropertyRef Name="IdInput" />
+    </Key>
+    <Property Name="IdInput" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Line" Type="nvarchar(max)" />
+    <Property Name="Date" Type="date" />
+    <Property Name="ProduceItem" Type="nvarchar(max)" />
+    <Property Name="DisplayName" Type="nvarchar(max)" />
+    <Property Name="Qty" Type="int" />
+    <Property Name="ShipDate" Type="nvarchar(max)" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="CustomerOrder" Type="nvarchar(max)" />
+    <Property Name="PurchaseRequisition" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Plan-View">
+    <Key>
+      <PropertyRef Name="IdView" />
+    </Key>
+    <Property Name="IdView" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdInput" Type="int" />
+    <Property Name="Line" Type="nvarchar(max)" />
+    <Property Name="Date" Type="date" />
+    <Property Name="ProduceItem" Type="nvarchar(max)" />
+    <Property Name="DisplayName" Type="nvarchar(max)" />
+    <Property Name="QtyDate" Type="int" />
+    <Property Name="QtySum" Type="int" />
+    <Property Name="QtyBatchSum" Type="int" />
+    <Property Name="ShipDate" Type="nvarchar(max)" />
+    <Property Name="Note" Type="nvarchar(max)" />
+    <Property Name="CustomerOrder" Type="nvarchar(max)" />
+    <Property Name="PurchaseRequisition" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DisplayName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DisplayName" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="IdRole" Type="int" Nullable="false" />
+    <Property Name="ChucVu" Type="nvarchar(max)" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="IDHinhAnh" Type="nvarchar(max)" />
+    <Property Name="LinkHinh" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK__Plan-View__IdInp__731B1205">
+    <End Role="Plan-Input" Type="Self.Plan-Input" Multiplicity="0..1" />
+    <End Role="Plan-View" Type="Self.Plan-View" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plan-Input">
+        <PropertyRef Name="IdInput" />
+      </Principal>
+      <Dependent Role="Plan-View">
+        <PropertyRef Name="IdInput" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__IdRole__04E4BC85">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="gla43158_QLSXCW1ModelStoreContainer">
+    <EntitySet Name="Dev-Lang" EntityType="Self.Dev-Lang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Plan-Input" EntityType="Self.Plan-Input" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Plan-View" EntityType="Self.Plan-View" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Plan-View__IdInp__731B1205" Association="Self.FK__Plan-View__IdInp__731B1205">
+      <End Role="Plan-Input" EntitySet="Plan-Input" />
+      <End Role="Plan-View" EntitySet="Plan-View" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__IdRole__04E4BC85" Association="Self.FK__Users__IdRole__04E4BC85">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
